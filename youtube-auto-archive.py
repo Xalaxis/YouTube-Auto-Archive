@@ -20,6 +20,7 @@ while True:
         "writedescription": True,
         "writeannotations": True,
         "ignoreerrors": True,
+        "cachedir": False,
         "postprocessors": [{
             "key": "FFmpegEmbedSubtitle"
         }]
