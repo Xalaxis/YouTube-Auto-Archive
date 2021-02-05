@@ -1,6 +1,7 @@
 import youtube_dl
 from datetime import datetime
 from os import environ
+from time import sleep
 
 # def my_hook(d):
 #     if d['status'] == 'finished':
@@ -28,4 +29,6 @@ while True:
 
     with youtube_dl.YoutubeDL(youtube_dl_options) as ytdl:
         ytdl.download([environ["TODOWNLOAD"]])
+    
+    sleep(int(environ["SLEEPMIN"]) * 60)
 
