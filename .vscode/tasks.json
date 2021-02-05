@@ -22,6 +22,10 @@
 				"file": "youtube-auto-archive.py"
 			},
 			"dockerRun": {
+				"env": {
+					"SLEEPMIN": "1",
+					"TODOWNLOAD": "https://www.youtube.com/watch?v=wJQmfYsFk4w&list=LL&index=2"
+				},
 				"volumes": [{
 					"containerPath": "/output",
 					"localPath": "C:\\Users\\Wolf\\Desktop\\tempmount",

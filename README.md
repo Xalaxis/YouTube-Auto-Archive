@@ -19,3 +19,4 @@ Container Path | Purpose
 Environment variable | Purpose | Default
 ---------|---------|---------
 TODOWNLOAD | URL to download. "Likes" playlist by default. | https://www.youtube.com/playlist?list=LL
+SLEEPMIN | How many minutes to sleep for between scans | 240

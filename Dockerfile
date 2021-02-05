@@ -13,6 +13,7 @@ RUN apt-get install ffmpeg -y
 
 # Default download link
 ENV TODOWNLOAD=https://www.youtube.com/playlist?list=LL
+ENV SLEEPMIN=240
 
 # Install pip requirements
 COPY requirements.txt .

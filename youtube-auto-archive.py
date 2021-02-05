@@ -3,10 +3,12 @@ from datetime import datetime
 from os import environ
 from time import sleep
 
+sleeptime = int(environ["SLEEPMIN"]) * 60
+
 # def my_hook(d):
 #     if d['status'] == 'finished':
 #         print(f"Done downloading {d.filename}")
-
+print("------")
 print(f"YouTube Auto Archive starting at {datetime.now()}")
 
 while True:
@@ -30,5 +32,6 @@ while True:
     with youtube_dl.YoutubeDL(youtube_dl_options) as ytdl:
         ytdl.download([environ["TODOWNLOAD"]])
     
-    sleep(int(environ["SLEEPMIN"]) * 60)
+    print(f"Now sleeping for {environ['SLEEPMIN']} minutes")
+    sleep(sleeptime)
 
