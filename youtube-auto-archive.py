@@ -18,7 +18,7 @@ while True:
     print(f"Starting download run at {datetime.now()}")
     youtube_dl_options = {
         "cookiefile": "/output/cookies.txt",
-        "outtmpl": "/output/%(title)s-%(id)s.%(ext)s",
+        "outtmpl": "/output/%(playlist_index)s-%(title)s-%(id)s.%(ext)s",
         "download_archive": "/output/downloaded.txt",
         "writesubtitles": True,
         "allsubtitles": True,
