@@ -28,6 +28,7 @@ while True:
         "ignoreerrors": True,
         "cachedir": False,
         "daterange": daterange,
+        "playlistreverse": True,
         "postprocessors": [{
             "key": "FFmpegEmbedSubtitle"
         }]
