@@ -10,6 +10,7 @@ ENV PYTHONUNBUFFERED=1
 # ffmpeg is needed for embedding subtitles
 RUN apt-get update -y
 RUN apt-get install ffmpeg -y
+RUN apt-get install tini -y
 
 # Default download link
 ENV TODOWNLOAD=https://www.youtube.com/playlist?list=LL
@@ -28,4 +29,5 @@ RUN useradd appuser && chown -R appuser /app
 USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+ENTRYPOINT [ "/usr/bin/tini", "--" ]
 CMD ["python", "youtube-auto-archive.py"]
