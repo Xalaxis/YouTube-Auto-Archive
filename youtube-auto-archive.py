@@ -2,8 +2,11 @@ import youtube_dl
 from datetime import datetime
 from os import environ
 from time import sleep
+from youtube_dl import DateRange
 
 sleeptime = int(environ["SLEEPMIN"]) * 60
+
+daterange = DateRange(end="today-1day")
 
 # def my_hook(d):
 #     if d['status'] == 'finished':
@@ -24,6 +27,7 @@ while True:
         "writeannotations": True,
         "ignoreerrors": True,
         "cachedir": False,
+        "daterange": daterange,
         "postprocessors": [{
             "key": "FFmpegEmbedSubtitle"
         }]
