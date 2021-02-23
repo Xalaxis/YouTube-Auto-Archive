@@ -9,7 +9,7 @@ To facilitiate this with two factor authentication, the container uses cookies f
 Mount the below mount location and ensure a cookies.txt is present.
 Also ensure a targets.txt is present with content to download in the format:
 
-`<url or playlist>, <directory>` on each line
+`<url or playlist>,<directory>,<playlist reverse mode>` on each line
 
 ## Mount locations
 

@@ -20,7 +20,7 @@ while True:
     download_list = open("/mount/targets.txt", "r").read().splitlines()
 
     for line in download_list:
-        target, destinationfolder = line.split(",")
+        target, destinationfolder, reverse = line.split(",")
         print(f"Downloading {target} to {destinationfolder}")
         youtube_dl_options = {
             "cookiefile": "/mount/cookies.txt",
@@ -34,7 +34,7 @@ while True:
             "ignoreerrors": True,
             "cachedir": False,
             "daterange": daterange,
-            "playlistreverse": True,
+            "playlistreverse": reverse,
             "postprocessors": [{
                 "key": "FFmpegEmbedSubtitle"
             }]
