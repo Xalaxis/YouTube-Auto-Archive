@@ -23,11 +23,10 @@
 			},
 			"dockerRun": {
 				"env": {
-					"SLEEPMIN": "1",
-					"TODOWNLOAD": "https://www.youtube.com/watch?v=wJQmfYsFk4w&list=LL&index=2"
+					"SLEEPMIN": "1"
 				},
 				"volumes": [{
-					"containerPath": "/output",
+					"containerPath": "/mount",
 					"localPath": "C:\\Users\\Wolf\\Desktop\\tempmount",
 					"permissions": "rw"
 				}]

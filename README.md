@@ -7,16 +7,18 @@ To facilitiate this with two factor authentication, the container uses cookies f
 ## To setup
 
 Mount the below mount location and ensure a cookies.txt is present.
+Also ensure a targets.txt is present with content to download in the format:
+
+`<url or playlist>, <directory>` on each line
 
 ## Mount locations
 
 Container Path | Purpose
 ---------------|---------
-/output | Output, progress, and cookie directory.
+/mount | Output, progress, and cookie directory.
 
 ## Environment variables
 
 Environment variable | Purpose | Default
 ---------|---------|---------
-TODOWNLOAD | URL to download. "Likes" playlist by default. | https://www.youtube.com/playlist?list=LL
 SLEEPMIN | How many minutes to sleep for between scans | 240

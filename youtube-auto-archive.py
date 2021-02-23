@@ -16,26 +16,32 @@ print(f"YouTube Auto Archive starting at {datetime.now()}")
 
 while True:
     print(f"Starting download run at {datetime.now()}")
-    youtube_dl_options = {
-        "cookiefile": "/output/cookies.txt",
-        "outtmpl": "/output/%(playlist_index)s-%(title)s-%(id)s.%(ext)s",
-        "download_archive": "/output/downloaded.txt",
-        "writesubtitles": True,
-        "allsubtitles": True,
-        "writethumbnail": True,
-        "writedescription": True,
-        "writeannotations": True,
-        "ignoreerrors": True,
-        "cachedir": False,
-        "daterange": daterange,
-        "playlistreverse": True,
-        "postprocessors": [{
-            "key": "FFmpegEmbedSubtitle"
-        }]
-    }
 
-    with youtube_dl.YoutubeDL(youtube_dl_options) as ytdl:
-        ytdl.download([environ["TODOWNLOAD"]])
+    download_list = open("/mount/targets.txt", "r").read().splitlines()
+
+    for line in download_list:
+        target, destinationfolder = line.split(",")
+        print(f"Downloading {target} to {destinationfolder}")
+        youtube_dl_options = {
+            "cookiefile": "/mount/cookies.txt",
+            "outtmpl": f"/mount/{destinationfolder}/%(playlist_index)s-%(title)s-%(id)s.%(ext)s",
+            "download_archive": f"/mount/{destinationfolder}/downloaded.txt",
+            "writesubtitles": True,
+            "allsubtitles": True,
+            "writethumbnail": True,
+            "writedescription": True,
+            "writeannotations": True,
+            "ignoreerrors": True,
+            "cachedir": False,
+            "daterange": daterange,
+            "playlistreverse": True,
+            "postprocessors": [{
+                "key": "FFmpegEmbedSubtitle"
+            }]
+        }
+
+        ytdl = youtube_dl.YoutubeDL(youtube_dl_options)
+        ytdl.download([target])
     
     print(f"Now sleeping for {environ['SLEEPMIN']} minutes")
     sleep(sleeptime)
