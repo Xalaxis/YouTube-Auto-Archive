@@ -25,7 +25,7 @@ while True:
             reverse = True
         else:
             reverse = False
-        print(f"Downloading {target} to {destinationfolder}")
+        print(f"Downloading {target} to {destinationfolder} in reverse-mode {str(reverse)}")
         youtube_dl_options = {
             "cookiefile": "/mount/cookies.txt",
             "outtmpl": f"/mount/{destinationfolder}/%(playlist_index)s-%(title)s-%(id)s.%(ext)s",
