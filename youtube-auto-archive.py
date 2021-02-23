@@ -21,6 +21,10 @@ while True:
 
     for line in download_list:
         target, destinationfolder, reverse = line.split(",")
+        if reverse.lower() in ["true", "y", "yes"]:
+            reverse = True
+        else:
+            reverse = False
         print(f"Downloading {target} to {destinationfolder}")
         youtube_dl_options = {
             "cookiefile": "/mount/cookies.txt",
