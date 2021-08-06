@@ -29,7 +29,6 @@ while True:
         youtube_dl_options = {
             "cookiefile": "/mount/cookies.txt",
             "outtmpl": f"/mount/{destinationfolder}/%(playlist_index)s-%(title)s-%(id)s.%(ext)s",
-            "download_archive": f"/mount/{destinationfolder}/downloaded.txt",
             "writesubtitles": True,
             "allsubtitles": True,
             "writethumbnail": True,
