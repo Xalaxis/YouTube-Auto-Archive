@@ -12,8 +12,7 @@ RUN apt-get update -y
 RUN apt-get install ffmpeg -y
 RUN apt-get install tini -y
 
-# Default download link
-ENV TODOWNLOAD=https://www.youtube.com/playlist?list=LL
+# Environment variable defaults
 ENV SLEEPMIN=240
 
 # Install pip requirements
